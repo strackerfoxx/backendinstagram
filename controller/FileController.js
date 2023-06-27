@@ -10,7 +10,7 @@ export const crearArchivo = async (req, res) => {
         limits : { fileSize : 5000000 },
         storage: multer.diskStorage({
             destination: (req, file, cb) => {
-                cb(null, './public')
+                cb(null, './uploads')
             },
             filename: (req, file, cb) => {
                 cb(null, random );
@@ -47,7 +47,7 @@ export const newProfileImage = async (req, res, next) => {
         limits : { fileSize : 5000000 },
         storage: multer.diskStorage({
             destination: (req, file, cb) => {
-                cb(null, './public')
+                cb(null, './uploads')
             },
             filename: (req, file, cb) => {
                 cb(null, req.image );
@@ -66,7 +66,7 @@ export const newProfileImage = async (req, res, next) => {
 
 export const deleteArchivo = (req, res) => {
     try {
-        fs.unlinkSync(`./public/${req.archivo}`);
+        fs.unlinkSync(`./uploads/${req.archivo}`);
         return res.status(200).json({msg: "Post eliminado"})
     } catch (error) {
         console.log(error)

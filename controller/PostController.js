@@ -45,7 +45,7 @@ export const listarPosts = async (req, res) => {
     res.send(posts)
 }
 export const image = async (req, res) => {
-    res.download(`./public/${req.query.img}`)
+    res.download(`./uploads/${req.query.img}`)
 }
 
 export const addComment = async (req, res) => {

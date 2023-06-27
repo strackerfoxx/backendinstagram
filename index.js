@@ -15,9 +15,10 @@ const app = express();
 // Esta ruta se escapa de la politica del cors y permite acceder sin necesidad del cors (antes usaba la ruta de image de post)
 
 app.get('/api/image', (req, res) => {
-    res.download(`./public/${req.query.img}`)
+    console.log()
+    res.download(`./uploads/${req.query.img}`)
 });
-app.use(express.static("public"))
+app.use(express.static("uploads"))
 
 app.get('/', (req, res) => {
     res.send("Im working")
